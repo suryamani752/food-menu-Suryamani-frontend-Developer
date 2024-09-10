@@ -1,30 +1,29 @@
-
 .grid {
   display: grid;
   gap: 1rem;
 }
 
 .grid-cols-3 {
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(3, 1fr);
 }
 
 /* For large screens (desktops, laptops) */
 @media (min-width: 1024px) {
   .grid-cols-3 {
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 /* For medium screens (tablets) */
 @media (min-width: 768px) and (max-width: 1023px) {
   .grid-cols-3 {
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 /* For small screens (mobile) */
 @media (max-width: 767px) {
   .grid-cols-3 {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
   }
 }

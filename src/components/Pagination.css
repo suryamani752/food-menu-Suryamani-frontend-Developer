@@ -1,0 +1,21 @@
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.pagination button {
+  padding: 0.5rem 1rem;
+}
+
+/* Responsive for small screens */
+@media (max-width: 767px) {
+  .pagination {
+    gap: 0.25rem; 
+  }
+
+  .pagination button {
+    padding: 0.5rem; 
+  }
+}

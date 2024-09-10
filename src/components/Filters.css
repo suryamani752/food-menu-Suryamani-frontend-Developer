@@ -1,0 +1,102 @@
+
+.filters-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap; 
+}
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+
+.select-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(45deg, #ff6f61, #d5a6f2, #f7b7a3, #a2d9ce);
+  border-radius: 10px;
+  z-index: -1;
+  background-size: 400% 400%;
+  animation: gradientBorder 6s ease infinite;
+}
+
+
+.custom-select {
+  border: 2px solid transparent; 
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  background-color: #fff; 
+  position: relative;
+  z-index: 1;
+  appearance: none; 
+  outline: none; 
+}
+
+.custom-select:focus {
+  outline: none; 
+  box-shadow: none; 
+}
+
+@keyframes gradientBorder {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+
+/* For large screens (desktops, laptops) */
+@media (min-width: 1024px) {
+  .filters-container {
+    gap: 2rem; 
+  }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .filters-container {
+    gap: 1.5rem;
+  }
+
+  .custom-select {
+    padding: 0.5rem 0.8rem; 
+  }
+}
+
+/* For small screens (mobile landscape) */
+@media (min-width: 480px) and (max-width: 767px) {
+  .filters-container {
+    gap: 1rem;
+    width: fit-content;
+  }
+  .select-wrapper{
+    width: fit-content;
+  }
+
+  .custom-select {
+    padding: 0.5rem;
+  }
+}
+
+/* For extra small screens (mobile portrait) */
+@media (max-width: 479px) {
+  .filters-container {
+    gap: 1rem;
+    flex-direction: column; 
+  }
+
+  .custom-select {
+    width: 100%; 
+    padding: 0.5rem; 
+  }
+}

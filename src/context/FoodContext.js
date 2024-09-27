@@ -7,19 +7,20 @@ export const FoodProvider = ({ children }) => {
   const [areaFilter, setAreaFilter] = useState("");
   const [sortOrder, setSortOrder] = useState("asc");
   const [searchTerm, setSearchTerm] = useState("");
-  const [error, setError] = useState(""); 
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch(
+    fetch( 
       `https://www.themealdb.com/api/json/v1/1/filter.php?a=${
         areaFilter || "Indian"
       }`
     )
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         if (data.meals) {
           setFoodItems(data.meals);
-          setError(""); 
+          setError("");
         } else {
           setFoodItems([]);
           setError("No results found for this area.");

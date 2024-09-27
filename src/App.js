@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Header from "./components/Header";
 import Filters from "./components/Filters";
 import FoodItems from "./components/FoodItems";
@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import { FoodContext } from "./context/FoodContext";
 
 const App = () => {
-  const { sortedItems } = useContext(FoodContext);
+  const { sortedItems, searchTerm } = useContext(FoodContext);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6; // Number of items per page
   const [selectedItem, setSelectedItem] = useState(null);
@@ -20,6 +20,9 @@ const App = () => {
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm]);
 
   const handleItemClick = (item) => {
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${item.idMeal}`)
